@@ -1,18 +1,19 @@
-//process.env.PUPPETEER_EXECUTABLE_PATH = path.join(__dirname, '.local-chromium', 'chrome-linux', 'chrome');
+//IMPORTAMOS LIBRERIAS
 import puppeteer from 'puppeteer';
 import ExcelJS from 'exceljs';
-import  writeFileSync from 'fs';
-import  saveAs  from 'file-saver';
+
 
 async function scrapeData() {
   const browser = await puppeteer.launch({
     headless: false,
     args: ['--start-fullscreen', '--no-sandbox', '--disable-setuid-sandbox'],
-  });
-  const page = await browser.newPage();
+  }); //GENERAMOS UNA NUEVA INSTANCIA DE BUSCADOR
+  const page = await browser.newPage(); //GENERAMOS UNA VENTANA
   let i =0;
   const arrayProductos = [];
-  const linksCategorias = [
+  const rows = [];
+  //LINKS DE LAS CATEGORIAS QUE VISITAREMOS
+  const linksCategorias = [ 
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-alfajores/_/N-1njwjm5',
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-chocolates/_/N-uiml5b',
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-caramelos-y-chupetines/_/N-1xkf1n',
@@ -37,17 +38,14 @@ async function scrapeData() {
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-gaseosas/_/N-n4l4r5',
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-aguas-aguas-saborizadas/_/N-rtdaup?Nf=product.startDate%7CLTEQ+1.7037216E12%7C%7Cproduct.endDate%7CGTEQ+1.7037216E12&Nr=AND%28product.sDisp_200%3A1004%2Cproduct.language%3Aespa%C3%B1ol%2COR%28product.siteId%3ACotoDigital%29%29',
     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-jugos-jugos-en-polvo/_/N-xwrj6e?Nf=product.startDate%7CLTEQ+1.7037216E12%7C%7Cproduct.endDate%7CGTEQ+1.7037216E12&Nr=AND%28product.sDisp_200%3A1004%2Cproduct.language%3Aespa%C3%B1ol%2COR%28product.siteId%3ACotoDigital%29%29'
-
-
-
   ]
-  const rows = [];
+  
   try {
     for(let link of linksCategorias){
       console.log("["+i+"]"+" CATEGORIA DE "+"["+linksCategorias.length+"]");
       i++;
       try{
-        // Navega a la página principal
+        // NAVEGA AL ENLACE INDICADO
         await page.goto(link);
       
         // OBTENGO LOS ENLACES DE LOS PRODUCTOS DE LA PAGINA PRINCIPAL
@@ -57,10 +55,10 @@ async function scrapeData() {
             for(let producto of links){
                 enlaces.push(producto.href);
             }
-            
             return enlaces;
         });
-        //Obtengo true si es una One page, esto quiere decir que no puedo recorrela, por lo tanto el programa muere ahi.
+
+        //CONSULTO SI LA PAGINA A SCRAPEAR ES UNA UNICA PAGINA, ESTO ME DARA LA PAUTA SI HAY QUE RECORRERALA O NO.
         const isOnePage = await page.evaluate(() => {
             let elemento = document.querySelector('#atg_store_pagination');
                 if (elemento != null || elemento != undefined){
@@ -70,35 +68,32 @@ async function scrapeData() {
                 }
         })
 
-        await openProducts(linksProductos,browser,arrayProductos,rows);
+        await openProducts(linksProductos,browser,arrayProductos,rows);//OBTENGO LOS PRODUCTOS DE LA PAGINA INICIAL
+
+        //SI NO ES UNA PAGINA UNICA, ABRO LA SIGUIENTE PAGINA 
         if (isOnePage === false){
             await openNextPage(page,browser,arrayProductos,rows,i)
-            //await createExcel(rows);
             console.log("CATEGORIA FINALIZADA");
         }else{
-            //await createExcel(rows);
-            //console.log("HAY SOLO UNA PAGINA PARA SCRAPEAR");
-            //console.log("FIN");
             console.log("CATEGORIA FINALIZADA");
         }
       }
       catch(error){
-        console.error('ERROR AL ABRIR LA CATEGORIA '+"["+i+"]");
+        console.error('ERROR AL ABRIR LA CATEGORIA '+"["+i+"]",error);
       }
     }  
   } catch (error) {
     console.error('Error during scraping:', error);
   } finally {
-    // Cierra el navegador al finalizar
+    
     console.log("["+i+"]"+" CATEGORIA DE "+"["+linksCategorias.length+"]");
     console.log("FIN DEL SCRAPEO by BLAS");
-    await createExcel(rows);
-    await browser.close();
+    await createExcel(rows);//EXTRAIGO EL ARCHIVO EXCEL
+    await browser.close();// CIERRO LA VENTANA DEL NAVEGADOR
   }
 }
 
 async function openProducts(productos,browser,arrayProductos,rows) {
-
   // Recorre los enlaces y obtén datos de cada página
   for (const enlace of productos) {
     // Abre una nueva página para cada enlace
@@ -107,8 +102,8 @@ async function openProducts(productos,browser,arrayProductos,rows) {
     try {
       // Navega a la página correspondiente
       await nuevaPagina.goto(enlace);
-      await nuevaPagina.waitForSelector('h1.product_page');
-      // Realiza acciones para obtener datos de la página, por ejemplo:
+      await nuevaPagina.waitForSelector('h1.product_page');//se detiene hasta encontrar el selector
+      // Con evaluate me permite interactuar con la web y aplicar js
       const resultado = await nuevaPagina.evaluate(() => {
         // optionals values
         const fechaActual = new Date();
@@ -119,6 +114,8 @@ async function openProducts(productos,browser,arrayProductos,rows) {
         // Crear una cadena de texto en formato "dd/mm/yyyy"
         const fechaConSeparador = dia + '/' + mes + '/' + año;
         const arrayProductos = [];
+        
+        //OBTENGO LOS DATOS
         const categoriaProducto = document.querySelector('#atg_store_breadcrumbs a:last-child')?.innerText;
         const marcaProducto = document.querySelector('#tab1 table.tblData td:last-child span.texto')?.innerText;
         const eanElement = document.querySelector('span.span_codigoplu')?.innerText;
@@ -128,6 +125,7 @@ async function openProducts(productos,browser,arrayProductos,rows) {
         let precioUnitarioPromocional = document.querySelector('#productInfoContainer div.product_discount div.first_price_discount_container span.price_discount')?.innerText;
         const unidad = document.querySelector('#productInfoContainer #atg_store_productMoreInfo span.unit')?.innerText.split(" ");
         
+        //AGREGO LOS DATOS A UN ARRAY
         //CADENA
         arrayProductos.push("Coto");
         //SUCURSAL
@@ -162,19 +160,8 @@ async function openProducts(productos,browser,arrayProductos,rows) {
         //PRECIO ANTIGUO
         arrayProductos.push("");
         return arrayProductos;  
-        // return{
-        //   categoriaProducto,
-        //   eanElement,
-        //   descripcion,
-        //   priceProducto
-        // }
       });
-
-      // Imprime los resultados
-      //console.log("Categoria: "+resultado.categoriaProducto+" | "+resultado.descripcion+" | "+resultado.eanElement+" | "+resultado.priceProducto);
       rows.push(resultado?resultado:"ERROR");
-      
-      //console.log(rows);
     } catch (error) {
       console.error('Error during scraping individual page:', error);
     } finally {
@@ -184,6 +171,7 @@ async function openProducts(productos,browser,arrayProductos,rows) {
   }
 }
 
+//Obtengo el enlace de la siguiente pagina para recorrer
 async function getNextPage(actualPage,){
     const nextPage = await actualPage.$eval('div.atg_store_pagination ul li.active',(btnActual) => {
         const btnNext = btnActual.nextElementSibling;
@@ -197,21 +185,19 @@ async function getNextPage(actualPage,){
             return null;
           }
     });
-
    return nextPage;
 }
 
+//Abro la pagina sieguiente 
 async function openNextPage(page,browser,arrayProductos,rows){
-    const nextPagina = await getNextPage(page);
-    
-    //const pagina = await browser.newPage();
+    const nextPagina = await getNextPage(page); //Consulto si hay una pagina siguiente
     try{
-        if(nextPagina !== null){
+        if(nextPagina !== null){ //Mientras que haya una siguiente pagina 
             await page.goto(nextPagina.href);
             console.log("----------------------------------------");
             console.log("PAGINA "+nextPagina.contenido)
             console.log("----------------------------------------");
-            const nuevosProductos = await page.evaluate(() => {
+            const nuevosProductos = await page.evaluate(() => { //Obtenermos los enlaces individuales de los productos
                 const links = document.querySelectorAll('#products li div.product_info_container a');
                 let enlaces = [];
                 for(let producto of links){
@@ -219,8 +205,8 @@ async function openNextPage(page,browser,arrayProductos,rows){
                 }
                 return enlaces;
             });
-            await openProducts(nuevosProductos,browser,arrayProductos,rows);
-            await openNextPage(page,browser,arrayProductos,rows)
+            await openProducts(nuevosProductos,browser,arrayProductos,rows); //Obtenemos la info de los productos
+            await openNextPage(page,browser,arrayProductos,rows)//VOLVEMOS A ejecutar, para que consulte con getNextPage, si hay mas paginas
         }else{ 
             console.log('FIN DE LAS PAGINAS');
             await browser.close();
@@ -231,6 +217,7 @@ async function openNextPage(page,browser,arrayProductos,rows){
     }
 }
 
+//GENERO EL EXCEL
 async function createExcel(rows) {
   const fechaActual = new Date();
   // Obtener el día, el mes y el año de la fecha actual
@@ -265,7 +252,7 @@ async function createExcel(rows) {
   for(let row of rows){
     worksheet.addRow(row);
   }
-  const filePath = 'C:/Users/Blas/Desktop/' + fileName; // Cambia la ruta según tus necesidades
+  const filePath = 'C:/Users/Blas/Desktop/' + fileName; // COLOCAMOS LA RUTA DONDE SE GUARDARA
 
 
   try {
