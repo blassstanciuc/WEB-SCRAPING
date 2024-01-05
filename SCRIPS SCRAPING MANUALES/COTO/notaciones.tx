@@ -1,0 +1,28 @@
+
+
+Al llegar al ultimo elemento, como sabemos?
+
+Preguntar si existe los botonefa-spin
+capturamos el elemento siguiente el txt y que nos puede dar...
+    |Ant = referencia al ultimo
+    |su texto mismo del ultimo li
+
+    |li ultimo tiene la clase: atg_store_paginationViewAll 
+
+    
+position!==footer?btnNext():c.log("NO HAY BOTONES SIGUIENTES");
+
+
+|Ya pude resolver cpara que scrole cuando haya botones y cuando no, buscar el teme de los elementos posicionados
+
+
+
+PARTES QUE SE VA A DIVIDIR EL SCRIPT 
+
+Primer recorrido
+    |RECORRER EL SITIO
+        >Scroll hacia abajo
+            >Analizar si tiene botones de paginas: ok
+    |RECOLECTAR LOS DATOS
+        >Evaluar si no es el fin de las hojas
+            >Capturar url del boton siguiente y abrir nueva ventana.
