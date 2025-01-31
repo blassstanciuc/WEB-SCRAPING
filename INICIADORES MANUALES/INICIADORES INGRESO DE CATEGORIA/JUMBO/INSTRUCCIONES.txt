@@ -1,0 +1,9 @@
+En esta cadena podras colocar la localidad y sucursal, respetar y escribir tal cual las opciones..
+
+Localidad - Sucursal
+
+Buenos Aires -> Jumbo Martinez
+Buenos Aires -> Jumbo San Martín
+Capital Federal -> Jumbo Palermo
+
+Esas son las opciones que deberan escribir, primero la localidad, presionan enter y luego la sucursal

@@ -1,0 +1,17 @@
+En esta cadena se le puede dar la sucursal en el mismo enlace... 
+agregando las propiedades al final
+si es un enlace de categoria se agrega al final..
+
+lugones = ?sc=1
+ruta 9 = ?sc=4
+
+ejemplo:https://www.hiperlibertad.com.ar/almacen/golosinas-y-chocolates?sc=1
+
+si es un enlace que tiene filtros el agregado cambia a..
+
+lugones = &sc=1
+ruta 9 = &sc=4
+
+ejemplo: https://www.hiperlibertad.com.ar/almacen/aceites-y-vinagres/aceites/aceites-de-girasol/aceites-de-oliva/aceites-mezcla/otras-variedades-de-aceites?initialMap=c,c&initialQuery=almacen/aceites-y-vinagres&map=category-1,category-2,category-3,category-3,category-3,category-3,category-3&sc=1
+
+

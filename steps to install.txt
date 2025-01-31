@@ -1,0 +1,9 @@
+-PASOS PARA INSTALAR EL ENTORNO DE LOS SCRIPS
+	1) Descargar e instalar node.js, En el momento de instalacion, tildar la casilla para que node descargue las herramientas necesarias.
+ En la terminal de visual
+	2)Iniciamos un nuevo proyecyto, con el comando: npm init -y
+	3)Instalamos librerias, con los siguientes comandos.
+		 puppeteer: npm install puppeteer@21.6.1    (Utilizar la version 21.6.1, porque algunas funciones de los scripts solo andan en esta version)
+		 exceljs: npm install exceljs
+		 chalk:	npm install chalk
+	LISTO!!

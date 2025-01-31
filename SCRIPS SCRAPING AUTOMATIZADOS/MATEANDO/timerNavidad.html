@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .uk-card-body {
+            background: url('https://d22fxaf9t8d39k.cloudfront.net/033a94fd8f56f54dc0f10638d5365838a13405f7c83581e77b80304bbf262742327310.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 10px; /* Reducir el padding general */
+        }
+
+        h2.tituloEvio {
+            font-family: 'Oswald', sans-serif;
+            font-size: 30px; /* Reducir el tamaño */
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+        h4.titulotiempo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px; /* Reducir el tamaño */
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+        h2.tituloEvio span.emoji {
+            font-size: 0.8em;
+            vertical-align: middle;
+        }
+
+        #countdown2 {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Reducir el espacio entre los elementos */
+            color: white;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .time-boxx {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.6), rgba(200, 200, 200, 0.8));
+            color: black;
+            margin: 5px 0; /* Reducir margen entre los cuadros */
+            padding: 8px 15px; /* Reducir padding dentro de los cuadros */
+            border-radius: 10px; /* Reducir radio de borde */
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px; /* Reducir el tamaño */
+            box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .time-boxx:hover {
+            transform: scale(1.05); /* Ajustar el tamaño al pasar el ratón */
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .time-boxx .number {
+            font-size: 60px; /* Reducir tamaño de los números */
+            margin: 0;
+            padding: 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .time-boxx:hover .number {
+            transform: rotateY(180deg);
+        }
+
+        .time-boxx .label {
+            font-size: 20px; /* Reducir tamaño de las etiquetas */
+            text-transform: uppercase;
+        }
+
+        .time-box .line {
+            width: 80%;
+            height: 2px;
+            background-color: black;
+            margin: 3px 0;
+        }
+
+        @media (max-width: 768px) {
+            .time-boxx {
+                width: 80px; /* Ajustar tamaño en dispositivos móviles */
+                padding: 5px 10px;
+            }
+            .time-boxx .number {
+                font-size: 40px; /* Reducir tamaño de números en móviles */
+            }
+            .time-boxx .label {
+                font-size: 16px; /* Reducir tamaño de etiquetas en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="uk-card uk-card-default uk-card-body uk-text-center" style="color: white; width: 100%; padding: 10px; font-family: 'Kanit', sans-serif;">
+        <h2 class="tituloEvio">ENVÍOS GRATIS </h2>
+        <div id="countdown2">
+            <div class="time-boxx">
+                <div class="number">00</div>
+                <div class="line"></div>
+                <div class="label">HORAS</div>
+            </div>
+            <div class="time-boxx">
+                <div class="number">00</div>
+                <div class="line"></div>
+                <div class="label">MINUTOS</div>
+            </div>
+            <div class="time-boxx">
+                <div class="number">00</div>
+                <div class="line"></div>
+                <div class="label">SEGUNDOS</div>
+            </div>
+        </div>
+        <h4 class="titulotiempo">POR TIEMPO LIMITADO <span class="emoji">⌛</span><span class="emoji">🏃🏽</span></h4>
+    </div>
+
+    <script>
+        function startCountdown2() {
+            const countdownElement = document.getElementById('countdown2');
+
+            function updateCountdown() {
+                const now = new Date();
+                const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+                const distance = targetDate - now;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `
+                    <div class="time-boxx">
+                        <div class="number">${hours.toString().padStart(2, '0')}</div>
+                        <div class="line"></div>
+                        <div class="label">HORAS</div>
+                    </div>
+                    <div class="time-boxx">
+                        <div class="number">${minutes.toString().padStart(2, '0')}</div>
+                        <div class="line"></div>
+                        <div class="label">MINUTOS</div>
+                    </div>
+                    <div class="time-boxx">
+                        <div class="number">${seconds.toString().padStart(2, '0')}</div>
+                        <div class="line"></div>
+                        <div class="label">SEGUNDOS</div>
+                    </div>
+                `;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "¡El tiempo ha terminado!";
+                }
+            }
+
+            updateCountdown();
+            const interval = setInterval(updateCountdown, 1000);
+        }
+
+        startCountdown2();
+    </script>
+</body>
+</html>

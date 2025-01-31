@@ -1,0 +1,128 @@
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap" rel="stylesheet">
+
+<div class="uk-card uk-card-default uk-card-body uk-text-center" style="background-color: white; color: black; width: 100%; padding: 20px; font-family: 'Kanit', sans-serif;">
+    <h1 class="tituloEvio">ENVÍO GRATIS</h1>
+    <div id="countdown2">
+        <div class="time-boxx">
+            <div class="number">00</div>
+            <div class="line"></div>
+            <div class="label">HORAS</div>
+        </div>
+        <div class="time-boxx">
+            <div class="number">00</div>
+            <div class="line"></div>
+            <div class="label">MINUTOS</div>
+        </div>
+        <div class="time-boxx">
+            <div class="number">00</div>
+            <div class="line"></div>
+            <div class="label">SEGUNDOS</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    h1.tituloEvio, h2.subtitulo {
+        font-family: 'Kanit', sans-serif;
+    }
+    h1.tituloEvio {
+        background-color: white;
+        color: black;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    #countdown2 {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Espacio entre los elementos */
+        color: white; /* Letras blancas */
+        font-family: 'Kanit', sans-serif;
+    }
+    .time-boxx {
+        background-color: white; /* Fondo blanco para los cuadrados */
+        color: black; /* Letras negras */
+        margin: 20px 0px 0px 0px;
+        padding: 10px 20px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        border: black 2px solid;
+        text-align: center; /* Centrando el texto */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+    }
+    .time-boxx .number {
+        font-size: 80px; /* Tamaño del texto de los números */
+        margin:0px !important;
+        padding:0px!important;
+    }
+    .time-boxx .label {
+        font-size: 25px; /* Tamaño del texto de las etiquetas */
+    }
+    .time-boxx .line {
+        width: 80%; /* Ancho de la línea */
+        height: 2px; /* Alto de la línea */
+        background-color: black; /* Color de la línea */
+        margin: 0px 0 10px 0; /* Espacio vertical reducido */
+    }
+    @media (max-width: 768px) {
+        .time-boxx {
+            width: 80px; /* Reduce el ancho de los cuadros de tiempo en móviles */
+        }
+        .time-boxx .number {
+            font-size: 60px; /* Reduce el tamaño del texto de los números en móviles */
+        }
+        .time-boxx .label {
+            font-size: 20px; /* Reduce el tamaño del texto de las etiquetas en móviles */
+        }
+    }
+</style>
+
+<script>
+    function startCountdown2() {
+        const countdownElement = document.getElementById('countdown2');
+        const now = new Date().getTime();
+        const nextResetTime = new Date();
+        nextResetTime.setHours(24, 0, 0, 0); // Configura la próxima marca de 24 horas
+        if (now > nextResetTime.getTime()) {
+            nextResetTime.setDate(nextResetTime.getDate() + 1);
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = nextResetTime - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+                <div class="time-boxx">
+                    <div class="number">${hours.toString().padStart(2, '0')}</div>
+                    <div class="line"></div>
+                    <div class="label">HORAS</div>
+                </div>
+                <div class="time-boxx">
+                    <div class="number">${minutes.toString().padStart(2, '0')}</div>
+                    <div class="line"></div>
+                    <div class="label">MINUTOS</div>
+                </div>
+                <div class="time-boxx">
+                    <div class="number">${seconds.toString().padStart(2, '0')}</div>
+                    <div class="line"></div>
+                    <div class="label">SEGUNDOS</div>
+                </div>
+            `;
+
+            if (distance < 0) {
+                nextResetTime.setDate(nextResetTime.getDate() + 1);
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
+    startCountdown2();
+</script>

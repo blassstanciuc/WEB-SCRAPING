@@ -1,0 +1,132 @@
+<style>
+    .uk-slider-items > div {
+    margin: 0;
+    padding: 0;
+}
+.uk-slider-items img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+</style>
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+    <div class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/ce37edc168849acf36775fbe11d35c73c81e4cb20a46505a1d8df304e9b1a63319762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/739854564ce978548579e6fe1453accbea861171c007ef209223068ae638821419762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/e2521556341413eb4469b1668fe05591fb3c1382502a8562bf7d1b70f2e26f7819762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/9c1822dea286a5d9583b5bcc9df37e34f8c785fc1abe9c2725cd6fbe361bca5b19762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/6514b759783a4904f6fabbf45c37d47f859272af4d72de41ebf8cfdaf4de302419762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/e45bfc1c4412051f45cc9cfbd3ef4e2c76ae473ff5f9b0a1d678162480225bec19762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/25f25f3e43a746facc6377bfcb417ba50ec34b939badd947f3045d5cdd8b8a7619762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/9bbe6d3cf804e60d4c2b322b81e6f7caef4c7aac9bed7ebfe7477b8d31f1855319762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/1a7d204d3257b1b861d9aba139f1b85fccd5497d2f1d2c5a891e28aec7610b9a19762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+                <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/160428b40f449244dae72e0b4b363d7a7087ea0ffd1aa407e20f24e97243a78719762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+        <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/6703982ac0df7ed71fa572f5c98343b592a5ad4966315f864b683196eb1172e719762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+                <div>
+            <img src="https://d22fxaf9t8d39k.cloudfront.net/9f3243e2339a1a017ac1d0f484222846191d9abb130e754256968e337a6fa8eb19762.jpg" alt="">
+            <div class="uk-position-center uk-panel"></div>
+        </div>
+    </div>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+</div>
+
+
+
+<div class="uk-card uk-card-default uk-card-body uk-text-center" style="background-color: black; color: white; width: 100%; padding: 20px;"></div>
+    <h1 class="tituloEvio"> APROVECHA EL ENVÍO GRATIS 🔥🧉</h1>
+    <div class="uk-h1" id="countdown">00h 00m 00s</div>
+</div>
+
+<style>
+    h1.tituloEvio{
+        color:white;
+        font-family: 'Kanit', sans-serif;
+    }
+    #countdown {
+        color: RED;
+        font-size: 48px; /* Tamaño del contador */
+        font-family: 'Kanit', sans-serif;
+    }
+</style>
+
+<script>
+    function startCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        const now = new Date().getTime();
+        const nextResetTime = new Date();
+        nextResetTime.setHours(24, 0, 0, 0); // Configura la próxima marca de 24 horas
+        if (now > nextResetTime.getTime()) {
+            nextResetTime.setDate(nextResetTime.getDate() + 1);
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = nextResetTime - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                nextResetTime.setDate(nextResetTime.getDate() + 1);
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
+    startCountdown();
+</script>
+
+
+/*HEADER*/
+.header,.header-logo{
+    min-height: 1000px !important;
+    min-width: 1000px !important;
+}
+.header-logo{
+    margin:0px!important;
+    padding:0px!important;
+}
+.header-logo__image{
+    width: 700px!important; /* Ajusta el ancho al 100% del contenedor */
+    height: auto !important;
+}

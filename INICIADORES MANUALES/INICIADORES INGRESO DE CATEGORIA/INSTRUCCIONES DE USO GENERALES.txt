@@ -1,0 +1,4 @@
+A los scrips se deberan insertar todos juntos separados por coma ",", recomiendo juntarlos
+en un txt y luego copiar y pegar, con el click derecho "pegar".
+Al pegarlo notaran que se repitaran pero no hay que darle importancia y presionar "enter".
+Luego iniciara y mostrara cuantas categorias va a escrapear
