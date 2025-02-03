@@ -298,7 +298,7 @@ async function openProducts(productos,browser,arrayProductos,rows,page) {
         const descripcion = tempDiv.querySelector('h3.nombre-producto')?.innerText;
         const priceProducto = tempDiv.querySelector('div.card-container div.centro-precios h4.card-title')?.innerText.trim();
         const oldprice= tempDiv.querySelector("div.card-container div.centro-precios small.marked-text")?.innerText.split(":");
-        const precioPromocional = tempDiv.querySelector('span.cucarda-promo.oferta:last-child')?.innerText;
+        const precioPromocional = tempDiv.querySelector('span.cucarda-promo.x-cantidad:last-child')?.innerText;
         let precioUnitarioPromocional = tempDiv.querySelector('div.card-container div.centro-precios div.text-center small')?.innerText.split(":");
         const unidad = precioUnitarioPromocional[0]?precioUnitarioPromocional[0].split(" "):null;
         let hayPorcentaje = precioPromocional?precioPromocional[0].includes("%"):false;
@@ -459,7 +459,7 @@ async function createExcel(rows,page) {
   for(let row of rows){
     worksheet.addRow(row);
   }
-  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // WINDOWS
+  const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
   //const filePath = 'C:/Users/Administrator/Desktop/WEB_SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
 
 

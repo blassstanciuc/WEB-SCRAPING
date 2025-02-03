@@ -7,3 +7,5 @@
 		 exceljs: npm install exceljs
 		 chalk:	npm install chalk
 	LISTO!!
+
+Funciona! 
