@@ -1,4 +1,9 @@
 SERVER NUEVO
-179.43.119.34
+IP: 179.43.119.34
 dattaguest
 4Lqu245fEwqW
+
+SERVER VIEJO
+IP: 200.58.109.110
+Usuario: dattaguest
+Contraseña: 4VoDbzZwmNUs
