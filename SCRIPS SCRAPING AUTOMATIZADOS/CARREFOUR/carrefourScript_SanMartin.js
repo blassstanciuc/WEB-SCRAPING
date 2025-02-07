@@ -623,8 +623,6 @@ async function selectSucursal(page,ix=0){
         //QUE VAS A COMPRAR
         await page.waitForTimeout(10000);
 
-        //SELECCIONAR QUE VAMOS A COMPRAR SUPERMERCADO
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.flex.flex-column.mb4 > div > div.valtech-carrefourar-region-locator-1-x-orderTypeContainer.valtech-carrefourar-region-locator-1-x-orderTypeContainer--locator.flex.flex-row.justify-center.items-center.w-100.w-50-m.pv3.ph3.tc.ba.bw1.br3.mr3.pointer.mb3.mb0-m > p');
         //SELECCIONAMOS CON LAS TECLA
         // APRETAMOS EL SELECT DE PROVINCIA
         await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-InputsContainer.valtech-carrefourar-region-locator-1-x-InputsContainer--locator.flex.mb > div:nth-child(1) > div > div');

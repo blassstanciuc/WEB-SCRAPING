@@ -26,50 +26,50 @@ async function scrapeData() {
   const rows = [];
   //LINKS DE LAS CATEGORIAS QUE VISITAREMOS
   const linksCategorias = [ 
-    /* "https://www.carrefour.com.ar/Almacen/Aceites-y-vinagres/Aceites-comunes",
-    "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-largos",
-    "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-guiseros-y-para-sopas",
-    "https://www.carrefour.com.ar/Almacen/Arroz-y-legumbres/Arroz",
-    "https://www.carrefour.com.ar/Almacen/Caldos-sopas-y-pure/Pures-instantaneos",
-    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Premezclas-de-bizcochuelos",
-    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Gelatinas-en-polvo",
-    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Postres-y-flanes-en-polvo",
-    "https://www.carrefour.com.ar/Almacen/Snacks",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-dulces",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Bizcochitos",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-de-agua",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletas-de-arroz",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Tostadas-grisines-y-marineras",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Budines",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Magdalenas",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Yerba",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Cafe",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Infusiones/Te",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Azucar-y-endulzantes/Azucar",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Cereales-y-barritas",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chocolates",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Alfajores",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Caramelos-gomitas-y-chupetines",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chicles",
-    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Bocaditos-confites-y-turrones",
-    "https://www.carrefour.com.ar/Bebidas/Fernet-y-aperitivos/Fernet",
-    "https://www.carrefour.com.ar/Bebidas/Gaseosas",
-    "https://www.carrefour.com.ar/Bebidas/Aguas/Aguas-saborizadas",
-    "https://www.carrefour.com.ar/Bebidas/Jugos/Jugos-en-polvo",
-    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-enteras?order=&",
-    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-descremadas?order=&",
-    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-vegetales?order=&",
-    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-enteros?order=",
-    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-descremados?order=&",
-    "https://www.carrefour.com.ar/Limpieza/Limpieza-de-la-ropa/Jabones-para-la-ropa",
-    "https://www.carrefour.com.ar/Limpieza/Limpieza-de-cocina/Detergentes",
-    "https://www.carrefour.com.ar/Limpieza/Papeles-higienicos",
-    "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Shampoos",
-    "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Acondicionadores",
-    "https://www.carrefour.com.ar/Perfumeria/Antitranspirantes-y-desodorantes",
-    "https://www.carrefour.com.ar/Mundo-Bebe/Panales", */
+    // "https://www.carrefour.com.ar/Almacen/Aceites-y-vinagres/Aceites-comunes",
+    // "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-largos",
+    // "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-guiseros-y-para-sopas",
+    // "https://www.carrefour.com.ar/Almacen/Arroz-y-legumbres/Arroz",
+    // "https://www.carrefour.com.ar/Almacen/Caldos-sopas-y-pure/Pures-instantaneos",
+    // "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Premezclas-de-bizcochuelos",
+    // "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Gelatinas-en-polvo",
+    // "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Postres-y-flanes-en-polvo",
+    // "https://www.carrefour.com.ar/Almacen/Snacks",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-dulces",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Bizcochitos",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-de-agua",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletas-de-arroz",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Tostadas-grisines-y-marineras",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Budines",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Magdalenas",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Yerba",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Cafe",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Infusiones/Te",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Azucar-y-endulzantes/Azucar",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Cereales-y-barritas",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chocolates",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Alfajores",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Caramelos-gomitas-y-chupetines",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chicles",
+    // "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Bocaditos-confites-y-turrones",
+    // "https://www.carrefour.com.ar/Bebidas/Fernet-y-aperitivos/Fernet",
+    // "https://www.carrefour.com.ar/Bebidas/Gaseosas",
+    // "https://www.carrefour.com.ar/Bebidas/Aguas/Aguas-saborizadas",
+    // "https://www.carrefour.com.ar/Bebidas/Jugos/Jugos-en-polvo",
+    // "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-enteras?order=&",
+    // "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-descremadas?order=&",
+    // "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-vegetales?order=&",
+    // "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-enteros?order=",
+    // "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-descremados?order=&",
+    // "https://www.carrefour.com.ar/Limpieza/Limpieza-de-la-ropa/Jabones-para-la-ropa",
+    // "https://www.carrefour.com.ar/Limpieza/Limpieza-de-cocina/Detergentes",
+    // "https://www.carrefour.com.ar/Limpieza/Papeles-higienicos",
+    // "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Shampoos",
+    // "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Acondicionadores",
+    // "https://www.carrefour.com.ar/Perfumeria/Antitranspirantes-y-desodorantes",
+    "https://www.carrefour.com.ar/Mundo-Bebe/Panales",
     // EJEMPLO DE ESCRAPEO
-     "https://www.carrefour.com.ar/Bebidas/Gaseosas?initialMap=c,c&initialQuery=bebidas/gaseosas&map=category-1,category-2,brand,brand&query=/bebidas/gaseosas/7-up/coca-cola&searchState"
+    //  "https://www.carrefour.com.ar/Bebidas/Gaseosas?initialMap=c,c&initialQuery=bebidas/gaseosas&map=category-1,category-2,brand,brand&query=/bebidas/gaseosas/7-up/coca-cola&searchState"
   ]
 
   try {
@@ -134,7 +134,7 @@ async function scrapeData() {
               while (!selectorFoundtwo && attemptstwo < maxAttempts) {
                 try {
                   // Espera hasta que aparezca el selector en la página
-                  await page.waitForSelector('div.valtech-carrefourar-search-result-2-x-gallery', { timeout: 5000 });
+                  await page.waitForSelector('div.valtech-carrefourar-search-result-3-x-gallery', { timeout: 5000 }); //MODIFIQUE BRIAN
                   selectorFoundtwo = true; // Se encontró el selector
                 } catch (error) {
                   console.error('Error en la pagina, recargando página...');
@@ -231,14 +231,14 @@ async function scrapeData() {
           // console.log("La pagina actual para obtener links es: "+paginaActual);
           console.log("Paginas Totales: "+totalPages);
           try {
-            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-3-x-galleryItem div section a.vtex-product-summary-2-x-clearLink', links => {
+            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-3-x-gallery div section a.vtex-product-summary-2-x-clearLink', links => { // BRIAN
               let enlaces = [];
               for(let producto of links){
                   enlaces.push(producto.href);
               }
               return enlaces;
             });
-            //console.log("ENLACES ANTES DE SALIR DE GETLINKS() "+linksProductos);
+            console.log("ENLACES ANTES DE SALIR DE GETLINKS() "+linksProductos);
             if(linksProductos.length == 16){
               console.log(chalk.green("Se enviaron los links siendo 16 prods"));
               return linksProductos;
@@ -258,7 +258,7 @@ async function scrapeData() {
           // console.log("LLEGAMOS A LA ULTIMA PAGINA "+paginaActual)
           // console.log("La pagina actual para obtener links es: "+paginaActual)
           try {
-            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-2-x-gallery div section a.vtex-product-summary-2-x-clearLink--contentProduct', links => {
+            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-3-x-gallery div section a.vtex-product-summary-2-x-clearLink', links => { //BRIAN
               let enlaces = [];
               for(let producto of links){
                   enlaces.push(producto.href);
@@ -276,7 +276,7 @@ async function scrapeData() {
         }
       }else{
         try {
-          const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-2-x-gallery div section a.vtex-product-summary-2-x-clearLink--contentProduct', links => {
+          const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-3-x-gallery div section a.vtex-product-summary-2-x-clearLink', links => { //BRIAN
             let enlaces = [];
             for(let producto of links){
                 enlaces.push(producto.href);
@@ -751,7 +751,11 @@ async function createExcel(rows) {
     worksheet.addRow(row);
   }
   //const filePath = 'C:/Users/Administrator/Desktop/WEB_SCRAPING/ARCHIVOS/CARREFOUR/LAPLATA/' + fileName; // Cambia la ruta según tus necesidades
-  const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
+
+  // const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // PC BRIAN
+  
+  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // PC BLAS
+
 
 
   try {
