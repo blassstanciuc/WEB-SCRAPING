@@ -26,17 +26,55 @@ async function scrapeData() {
   const rows = [];
   //LINKS DE LAS CATEGORIAS QUE VISITAREMOS
   const linksCategorias = [ 
-    /* "https://www.carrefour.com.ar/Almacen/Arroz-y-legumbres",
-    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres",
-    "https://www.carrefour.com.ar/Bebidas/Cervezas",
-    "https://www.carrefour.com.ar/Bebidas/Gaseosas" */
+    /* "https://www.carrefour.com.ar/Almacen/Aceites-y-vinagres/Aceites-comunes",
+    "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-largos",
+    "https://www.carrefour.com.ar/Almacen/Pastas-secas/Fideos-guiseros-y-para-sopas",
+    "https://www.carrefour.com.ar/Almacen/Arroz-y-legumbres/Arroz",
+    "https://www.carrefour.com.ar/Almacen/Caldos-sopas-y-pure/Pures-instantaneos",
+    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Premezclas-de-bizcochuelos",
+    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Gelatinas-en-polvo",
+    "https://www.carrefour.com.ar/Almacen/Reposteria-y-postres/Postres-y-flanes-en-polvo",
+    "https://www.carrefour.com.ar/Almacen/Snacks",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-dulces",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Bizcochitos",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletitas-de-agua",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Galletas-de-arroz",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas/Tostadas-grisines-y-marineras",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Budines",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Budines-y-magdalenas/Magdalenas",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Yerba",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Cafe",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Infusiones/Te",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Azucar-y-endulzantes/Azucar",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Cereales-y-barritas",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chocolates",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Alfajores",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Caramelos-gomitas-y-chupetines",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Chicles",
+    "https://www.carrefour.com.ar/Desayuno-y-merienda/Golosinas-y-chocolates/Bocaditos-confites-y-turrones",
+    "https://www.carrefour.com.ar/Bebidas/Fernet-y-aperitivos/Fernet",
+    "https://www.carrefour.com.ar/Bebidas/Gaseosas",
+    "https://www.carrefour.com.ar/Bebidas/Aguas/Aguas-saborizadas",
+    "https://www.carrefour.com.ar/Bebidas/Jugos/Jugos-en-polvo",
+    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-enteras?order=&",
+    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-descremadas?order=&",
+    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches/Leches-vegetales?order=&",
+    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-enteros?order=",
+    "https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Yogures/Yogures-descremados?order=&",
+    "https://www.carrefour.com.ar/Limpieza/Limpieza-de-la-ropa/Jabones-para-la-ropa",
+    "https://www.carrefour.com.ar/Limpieza/Limpieza-de-cocina/Detergentes",
+    "https://www.carrefour.com.ar/Limpieza/Papeles-higienicos",
+    "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Shampoos",
+    "https://www.carrefour.com.ar/Perfumeria/Cuidado-del-cabello/Acondicionadores",
+    "https://www.carrefour.com.ar/Perfumeria/Antitranspirantes-y-desodorantes",
+    "https://www.carrefour.com.ar/Mundo-Bebe/Panales", */
     // EJEMPLO DE ESCRAPEO
      "https://www.carrefour.com.ar/Bebidas/Gaseosas?initialMap=c,c&initialQuery=bebidas/gaseosas&map=category-1,category-2,brand,brand&query=/bebidas/gaseosas/7-up/coca-cola&searchState"
   ]
 
   try {
     console.log(" ");
-    console.log(chalk.green.underline('                  [SUCURSAL CARREFOUR HIPER LA PLATA TRES]                         '));
+    console.log(chalk.green.underline('                  [SUCURSAL CARREFOUR HIPER LA PLATA ]                         '));
     console.log(" ");
     for(let link of linksCategorias){
       i++;
@@ -193,7 +231,7 @@ async function scrapeData() {
           // console.log("La pagina actual para obtener links es: "+paginaActual);
           console.log("Paginas Totales: "+totalPages);
           try {
-            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-2-x-gallery div section a.vtex-product-summary-2-x-clearLink--contentProduct', links => {
+            const linksProductos = await page.$$eval('div.valtech-carrefourar-search-result-3-x-galleryItem div section a.vtex-product-summary-2-x-clearLink', links => {
               let enlaces = [];
               for(let producto of links){
                   enlaces.push(producto.href);
@@ -525,154 +563,154 @@ async function scrapeData() {
 async function selectSucursal(page,ix=0){
 
 
-  console.log("INICIANDO SELECCION DE SURCURSAL");
-  let intentos = ix;
-    try {
-      intentos++; 
-      let seencontroSelector = false;
-      let maxIntentos = 10; // Número máximo de intentos
-      while (!seencontroSelector && intentos < maxIntentos) {
-      console.log("INTENTOS "+intentos);
-      console.log("SELECTOR "+seencontroSelector);
-        if(intentos < 2){
-          await page.waitForTimeout(10000);
-          // await page.waitForSelector('div.valtech-carrefourar-search-result-2-x-gallery', { timeout: 5000 });
-          const btnHeaders = await page.$$("div.vtex-store-header-2-x-headerRowContainer div.valtech-carrefourar-content-visibility-0-x-contentShow");
-          if (btnHeaders) {
-          await page.click('div.valtech-carrefourar-region-locator-1-x-openIconContainer div[role="button"]');
-          console.log("APRETE EL BOTON DE INGRESO");
-          } else {
-          console.error('Elemento no encontrado, ingreso');
+    console.log("INICIANDO SELECCION DE SURCURSAL");
+    let intentos = ix;
+      try {
+        intentos++; 
+        let seencontroSelector = false;
+        let maxIntentos = 10; // Número máximo de intentos
+        while (!seencontroSelector && intentos < maxIntentos) {
+        console.log("INTENTOS "+intentos);
+        console.log("SELECTOR "+seencontroSelector);
+          if(intentos < 2){
+            await page.waitForTimeout(10000);
+            // await page.waitForSelector('div.valtech-carrefourar-search-result-2-x-gallery', { timeout: 5000 });
+            const btnHeaders = await page.$$("div.vtex-store-header-2-x-headerRowContainer div.valtech-carrefourar-content-visibility-0-x-contentShow");
+            if (btnHeaders) {
+            await page.click('div.valtech-carrefourar-region-locator-1-x-openIconContainer div[role="button"]');
+            console.log("APRETE EL BOTON DE INGRESO");
+            } else {
+            console.error('Elemento no encontrado, ingreso');
+            }
+            
+            await page.waitForTimeout(5000);
+            
+            try{
+              await page.click('#onetrust-accept-btn-handler');
+            }catch{
+              console.error('no esta el boton de cerrar pop up uno');
+            }
+  
+            //cerrar pop up
+            try{
+              await page.click('div.dy-lb-close');
+            }catch{
+              console.error('no esta el boton de cerrar pop up');
+            }
+  
+            await page.waitForTimeout(2000);
+  
+            const btnIngresarMail = await page.$("div.vtex-login-2-x-emailPasswordOptionBtn button");
+            if (btnIngresarMail) {
+              try{
+                await btnIngresarMail.click();
+              }catch{
+                console.error('Elemento no encontrado ingreso con mail');
+              }
+              } else {
+              console.error('Elemento no encontrado mail');
+              }
+  
+            await page.waitForTimeout(10000);
+  
+            const selectorInputMail = await page.$('form div.vtex-login-2-x-inputContainer label div input');
+  
+           // console.log("SLECTOR "+selectorInputMail);
+            if(selectorInputMail){
+              await selectorInputMail.type('blasstanciuc@gmail.com');
+              await page.waitForTimeout(5000);
+            }else{console.log("NO SE ENCONTRO EL INPUT DEL MAIL")}
+  
+            const selectorInputPassword = await page.$('form div.vtex-login-2-x-inputContainerPassword label div input');
+  
+            if(selectorInputPassword){
+              await selectorInputPassword.type('webSCRAPING1234');
+              await page.waitForTimeout(5000);
+            }else{console.log("NO SE ENCONTRO EL INPUT DEL MAIL")}
+  
+            await page.waitForTimeout(20000);
+            console.log("bienvenidos")
+  
+  
+            //LOGIN DESPUES DE CREDENCIALES
+            await page.click('div.vtex-login-2-x-sendButton button');
+            await page.waitForTimeout(10000);
+            await page.goto('https://www.carrefour.com.ar/');
+            await page.waitForTimeout(10000);
+            await page.setViewport({ width: 1400, height: 2000 });
+            //await page.waitForSelector('div.vtex-store-header-2-x-headerRowContainer');
           }
-          
-          await page.waitForTimeout(5000);
-          
-          try{
-            await page.click('#onetrust-accept-btn-handler');
-          }catch{
-            console.error('no esta el boton de cerrar pop up uno');
-          }
-
           //cerrar pop up
           try{
             await page.click('div.dy-lb-close');
           }catch{
             console.error('no esta el boton de cerrar pop up');
           }
-
+          //SELECCIONA SUCURSAL DE RETIRO
+          try{
+          // SE APRETA EL BOTON DE SELECCIONA TIENDA 
+          await page.click('div.valtech-carrefourar-region-locator-1-x-openIconContainer div[role="button"]');
           await page.waitForTimeout(2000);
-
-          const btnIngresarMail = await page.$("div.vtex-login-2-x-emailPasswordOptionBtn button");
-          if (btnIngresarMail) {
-            try{
-              await btnIngresarMail.click();
-            }catch{
-              console.error('Elemento no encontrado ingreso con mail');
-            }
-            } else {
-            console.error('Elemento no encontrado mail');
-            }
-
-          await page.waitForTimeout(10000);
-
-          const selectorInputMail = await page.$('form div.vtex-login-2-x-inputContainer label div input');
-
-         // console.log("SLECTOR "+selectorInputMail);
-          if(selectorInputMail){
-            await selectorInputMail.type('blasstanciuc@gmail.com');
-            await page.waitForTimeout(5000);
-          }else{console.log("NO SE ENCONTRO EL INPUT DEL MAIL")}
-
-          const selectorInputPassword = await page.$('form div.vtex-login-2-x-inputContainerPassword label div input');
-
-          if(selectorInputPassword){
-            await selectorInputPassword.type('webSCRAPING1234');
-            await page.waitForTimeout(5000);
-          }else{console.log("NO SE ENCONTRO EL INPUT DEL MAIL")}
-
-          await page.waitForTimeout(20000);
-          console.log("bienvenidos")
-
-
-          //LOGIN DESPUES DE CREDENCIALES
-          await page.click('div.vtex-login-2-x-sendButton button');
-          await page.waitForTimeout(10000);
-          await page.goto('https://www.carrefour.com.ar/');
-          await page.waitForTimeout(10000);
-          await page.setViewport({ width: 1400, height: 2000 });
-          //await page.waitForSelector('div.vtex-store-header-2-x-headerRowContainer');
-        }
-        //cerrar pop up
-        try{
-          await page.click('div.dy-lb-close');
-        }catch{
-          console.error('no esta el boton de cerrar pop up');
-        }
-        //SELECCIONA SUCURSAL DE RETIRO
-        try{
-        // SE APRETA EL BOTON DE SELECCIONA TIENDA 
-        await page.click('div.valtech-carrefourar-region-locator-1-x-openIconContainer div[role="button"]');
-        await page.waitForTimeout(2000);
-
-        }catch{
-        console.log("Toque mas veces o no esta el retiro de sucursal")
-        }
   
-        await page.waitForTimeout(20000);
-
-        // SELECCIONAREMOS RETIRO O DRIVE
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div > div.valtech-carrefourar-region-locator-1-x-methodsContainer.valtech-carrefourar-region-locator-1-x-methodsContainer--locator.flex.flex-column.items-center.justify-center.ttu.w-100-m > div:nth-child(1) > button');
-
-        //QUE VAS A COMPRAR
+          }catch{
+          console.log("Toque mas veces o no esta el retiro de sucursal")
+          }
+    
+          await page.waitForTimeout(20000);
+  
+          // SELECCIONAREMOS RETIRO O DRIVE
+          await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div > div.valtech-carrefourar-region-locator-1-x-methodsContainer.valtech-carrefourar-region-locator-1-x-methodsContainer--locator.flex.flex-column.items-center.justify-center.ttu.w-100-m > div:nth-child(1) > button');
+  
+          //QUE VAS A COMPRAR
+          await page.waitForTimeout(5000);
+  
+          //SELECCIONAMOS CON LAS TECLA
+          //SELECCIONAR QUE VAMOS A COMPRAR SUPERMERCADO
+          await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.flex.flex-column.mb4 > div > div.valtech-carrefourar-region-locator-1-x-orderTypeContainer.valtech-carrefourar-region-locator-1-x-orderTypeContainer--locator.flex.flex-row.justify-center.items-center.w-100.w-50-m.pv3.ph3.tc.ba.bw1.br3.mr3.pointer.mb3.mb0-m > p');
+  
+          // APRETAMOS EL SELECT DE PROVINCIA
+          await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-InputsContainer.valtech-carrefourar-region-locator-1-x-InputsContainer--locator.flex.mb > div:nth-child(1) > div > div');
+          await page.waitForTimeout(5000);
+          await page.keyboard.type('Buenos Aires');
+          await page.waitForTimeout(5000);
+          await page.keyboard.press('ArrowDown');
+          await page.waitForTimeout(5000);
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(10000);
+  
+           // APRETAMOS EL SELECT DE PARTIDO
+          await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-InputsContainer.valtech-carrefourar-region-locator-1-x-InputsContainer--locator.flex.mb > div:nth-child(2) > div > div > div > div');
+          await page.keyboard.type('La Plata');
+          await page.waitForTimeout(5000);
+          await page.keyboard.press('Enter');
+          //-------------------------------
+          await page.waitForTimeout(20000);
+  
+          await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-StoreListContainer.valtech-carrefourar-region-locator-1-x-StoreListContainer--locator.mt0.h-100 > div:nth-child(3)');
+          await page.waitForTimeout(5000);
+          await page.keyboard.press('Tab');
+          await page.waitForTimeout(5000);
+          await page.keyboard.press('Enter');
+          await page.waitForTimeout(5000);
+          console.log("."); 
+          console.log(".");
+          console.log("INGRESO A SUCURSAL DE FORMA CORRECTA");
+          seencontroSelector = true; // Se encontró el selector
+          console.log(chalk.green("-------------------------------------------------------"));
+        }
+      } catch (error) {
+        console.error('ERROR AL ELEGIR SUCURSAL, recargando página...' + error);
+        intentos++;           //await page.reload();
+        await page.goto('https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas');
         await page.waitForTimeout(5000);
-
-        //SELECCIONAMOS CON LAS TECLA
-        //SELECCIONAR QUE VAMOS A COMPRAR SUPERMERCADO
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.flex.flex-column.mb4 > div > div.valtech-carrefourar-region-locator-1-x-orderTypeContainer.valtech-carrefourar-region-locator-1-x-orderTypeContainer--locator.flex.flex-row.justify-center.items-center.w-100.w-50-m.pv3.ph3.tc.ba.bw1.br3.mr3.pointer.mb3.mb0-m > p');
-
-        // APRETAMOS EL SELECT DE PROVINCIA
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-InputsContainer.valtech-carrefourar-region-locator-1-x-InputsContainer--locator.flex.mb > div:nth-child(1) > div > div');
-        await page.waitForTimeout(5000);
-        await page.keyboard.type('Buenos Aires');
-        await page.waitForTimeout(5000);
-        await page.keyboard.press('ArrowDown');
-        await page.waitForTimeout(5000);
-        await page.keyboard.press('Enter');
-        await page.waitForTimeout(10000);
-
-         // APRETAMOS EL SELECT DE PARTIDO
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-InputsContainer.valtech-carrefourar-region-locator-1-x-InputsContainer--locator.flex.mb > div:nth-child(2) > div > div > div > div');
-        await page.keyboard.type('La Plata');
-        await page.waitForTimeout(5000);
-        await page.keyboard.press('Enter');
-        //-------------------------------
-        await page.waitForTimeout(20000);
-
-        await page.click('body > div.valtech-carrefourar-region-locator-1-x-drawer.valtech-carrefourar-region-locator-1-x-drawer--locator.valtech-carrefourar-region-locator-1-x-opened.valtech-carrefourar-region-locator-1-x-opened--locator.left-0.fixed.top-0.bottom-0.bg-base.z-999.flex.flex-column > div > div.valtech-carrefourar-region-locator-1-x-childrenContainer.valtech-carrefourar-region-locator-1-x-childrenContainer--locator.flex.flex-grow-1 > div > div.valtech-carrefourar-region-locator-1-x-StoreListContainer.valtech-carrefourar-region-locator-1-x-StoreListContainer--locator.mt0.h-100 > div:nth-child(3)');
-        await page.waitForTimeout(5000);
-        await page.keyboard.press('Tab');
-        await page.waitForTimeout(5000);
-        await page.keyboard.press('Enter');
-        await page.waitForTimeout(5000);
-        console.log("."); 
-        console.log(".");
-        console.log("INGRESO A SUCURSAL DE FORMA CORRECTA");
-        seencontroSelector = true; // Se encontró el selector
-        console.log(chalk.green("-------------------------------------------------------"));
-      }
-    } catch (error) {
-      console.error('ERROR AL ELEGIR SUCURSAL, recargando página...' + error);
-      intentos++;           //await page.reload();
-      await page.goto('https://www.carrefour.com.ar/Desayuno-y-merienda/Galletitas-bizcochitos-y-tostadas');
-      await page.waitForTimeout(5000);
-      await selectSucursal(page,intentos);
-      await page.evaluate(() => {
-        return new Promise(resolve => {
-          setTimeout(resolve, 5000);
+        await selectSucursal(page,intentos);
+        await page.evaluate(() => {
+          return new Promise(resolve => {
+            setTimeout(resolve, 5000);
+          });
         });
-      });
-    }
-}
+      }
+  }
 
 
 
@@ -713,9 +751,8 @@ async function createExcel(rows) {
     worksheet.addRow(row);
   }
   //const filePath = 'C:/Users/Administrator/Desktop/WEB_SCRAPING/ARCHIVOS/CARREFOUR/LAPLATA/' + fileName; // Cambia la ruta según tus necesidades
-  // const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // WINDOWS
   const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
-  
+
 
   try {
     await workbook.xlsx.writeFile(filePath);
