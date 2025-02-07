@@ -606,7 +606,7 @@ async function createExcel(rows) {
     worksheet.addRow(row);
   }
   //const filePath = 'C:/Users/Administrator/Desktop/WEB_SCRAPING/ARCHIVOS/CARREFOUR/LAPLATA/' + fileName; // Cambia la ruta según tus necesidades
-  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // WINDOWS
+  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // PC BLAS
 
 
   try {
