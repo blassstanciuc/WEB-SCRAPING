@@ -25,8 +25,8 @@ async function scrapeData() {
   //  "https://diaonline.supermercadosdia.com.ar/almacen/reposteria",
   //  "https://diaonline.supermercadosdia.com.ar/almacen/picadas/papas-fritas",
   //  "https://diaonline.supermercadosdia.com.ar/almacen/picadas/snacks",
-   "https://diaonline.supermercadosdia.com.ar/bebidas/gaseosas",
-   "https://diaonline.supermercadosdia.com.ar/bebidas/cervezas",
+  //  "https://diaonline.supermercadosdia.com.ar/bebidas/gaseosas",
+  //  "https://diaonline.supermercadosdia.com.ar/bebidas/cervezas",
   //  "https://diaonline.supermercadosdia.com.ar/bebidas/aguas/aguas-saborizadas",
   //  "https://diaonline.supermercadosdia.com.ar/bebidas/jugos-e-isotonicas/jugos-en-polvo",
   //  "https://diaonline.supermercadosdia.com.ar/frescos/leches?initialMap=c,c&initialQuery=frescos/leches&map=category-1,category-2,category-3,category-3&query=/frescos/leches/leches-descremadas/leches-enteras&searchState",
@@ -238,9 +238,9 @@ async function saveProducts(productos,page,rows, browser) {
           const priceProducto = document.querySelector('span.diaio-store-5-x-sellingPrice span.diaio-store-5-x-sellingPriceValue')?.innerText;
           const ean = document.querySelector('span.vtex-product-identifier-0-x-product-identifier__value')?.innerText;
           const precioAntiguo = document.querySelector('span.diaio-store-5-x-listPrice span.diaio-store-5-x-listPriceValue.strike')?.innerText;
-          const precioUnidadDeMedida = document.querySelector('span[data-specification-name="PrecioPorUnd"]')?.innerText;
+          const precioUnidadDeMedida = document.querySelector('div.vtex-flex-layout-0-x-flexColChild div.vtex-flex-layout-0-x-flexRow div.vtex-flex-layout-0-x-flexRowContent--product-unit div.vtex-flex-layout-0-x-stretchChildrenWidth div.diaio-store-5-x-custom_specification_wrapper')?.innerText;
           const UnidadDeMedida = document.querySelector('span[data-specification-name="UnidaddeMedida"]')?.innerText;
-          const promo = document.querySelector('span.vtex-product-price-1-x-savings span')?.innerText;       
+          const promo = document.querySelector('span.vtex-product-price-1-x-savingsPercentage span')?.innerText;       
           const promo2do = document.querySelector('span.vtex-product-highlights-2-x-productHighlightText.vtex-product-highlights-2-x-productHighlightText--promotions')?.innerText; 
 
           //CADENA
@@ -327,7 +327,7 @@ async function createExcel(rows) {
     worksheet.addRow(row);
   }
   // const filePath = '/home/blas/Descargas/' + fileName; // Cambia la ruta según tus necesidades
-  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // WINDOWS
+  const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/Excel/dia/' + fileName; // WINDOWS
 
 
   try {
