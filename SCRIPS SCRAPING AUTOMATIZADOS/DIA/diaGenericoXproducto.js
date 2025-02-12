@@ -41,7 +41,7 @@ async function scrapeData() {
   //  "https://diaonline.supermercadosdia.com.ar/bebidas/aperitivos",
   //  "https://diaonline.supermercadosdia.com.ar/almacen/aceites-y-aderezos/mayonesa",  
   //  "https://diaonline.supermercadosdia.com.ar/almacen/comidas-listas/pure", 
-  //  "https://diaonline.supermercadosdia.com.ar/bebes-y-ninos/panales/panales",   
+    "https://diaonline.supermercadosdia.com.ar/bebes-y-ninos/panales/panales",   
   //  "https://diaonline.supermercadosdia.com.ar/limpieza/cuidado-de-la-ropa/jabon-liquido"
     ]
   const rows = [];
@@ -240,7 +240,7 @@ async function saveProducts(productos,page,rows, browser) {
           const precioAntiguo = document.querySelector('span.diaio-store-5-x-listPrice span.diaio-store-5-x-listPriceValue.strike')?.innerText;
           const precioUnidadDeMedida = document.querySelector('div.vtex-flex-layout-0-x-flexColChild div.vtex-flex-layout-0-x-flexRow div.vtex-flex-layout-0-x-flexRowContent--product-unit div.vtex-flex-layout-0-x-stretchChildrenWidth div.diaio-store-5-x-custom_specification_wrapper')?.innerText;
           const UnidadDeMedida = document.querySelector('span[data-specification-name="UnidaddeMedida"]')?.innerText;
-          const promo = document.querySelector('span.vtex-product-price-1-x-savingsPercentage span')?.innerText;       
+          const promo = document.querySelector('span.vtex-product-price-1-x-savings span')?.innerText;       
           const promo2do = document.querySelector('span.vtex-product-highlights-2-x-productHighlightText.vtex-product-highlights-2-x-productHighlightText--promotions')?.innerText; 
 
           //CADENA
