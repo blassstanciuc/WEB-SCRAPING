@@ -423,7 +423,7 @@ async function createExcel(rows,page) {
   const workbook = new ExcelJS.Workbook();
 
   let nombreSucursal = await page.evaluate(()=>{
-    let sucursal = document.querySelector("body > app-root > app-main > app-header > header > div.seccion-principal.container.pb-3.px-0 > div.lado-izquierdo.align-items-center > div > p")?.innerText;
+    let sucursal = document.querySelector("#address-list > div > div > li:nth-child(1) > div > div > div > span.d-block.fw-bold")?.innerText;
     return sucursal;
   })
 
