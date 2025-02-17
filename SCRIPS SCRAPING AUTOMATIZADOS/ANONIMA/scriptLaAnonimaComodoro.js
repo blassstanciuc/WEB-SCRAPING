@@ -51,7 +51,7 @@ async function scrapeData() {
   //LINKS DE LAS CATEGORIAS QUE VISITAREMOS
   const linksCategorias = [ 
     "https://supermercado.laanonimaonline.com/almacen/aceites/n2_11/",
-    "https://supermercado.laanonimaonline.com/almacen/arroz-y-legumbres/arroz/n3_93/",
+    /*"https://supermercado.laanonimaonline.com/almacen/arroz-y-legumbres/arroz/n3_93/",
     "https://supermercado.laanonimaonline.com/almacen/cereales/cereales-y-barras/n3_99/",
     "https://supermercado.laanonimaonline.com/almacen/chocolates-y-golosinas/n2_16/",
     "https://supermercado.laanonimaonline.com/frescos/panificados/n2_71/",
@@ -80,7 +80,7 @@ async function scrapeData() {
     "https://supermercado.laanonimaonline.com/panales/n2_356/filtrar____/",
     "https://supermercado.laanonimaonline.com/perfumeria/cuidado-cabello/shampoo/n3_186/",
     "https://supermercado.laanonimaonline.com/perfumeria/desodorantes/n2_45/",
-    "https://supermercado.laanonimaonline.com/lavado-de-ropa/n2_58/filtrar__221/"
+    "https://supermercado.laanonimaonline.com/lavado-de-ropa/n2_58/filtrar__221/" */
   ]
   try {
     console.log(" ");
@@ -106,7 +106,7 @@ async function scrapeData() {
         while (!selectorFound && attempts < maxAttempts) {
           try {
             // Espera hasta que aparezca el selector en la página
-            await page.waitForSelector('#pie_informacion', { timeout: 5000 });
+            await page.waitForSelector('#pie_informacion', { timeout: 200000 });
             selectorFound = true; // Se encontró el selector
           } catch (error) {
             console.error('Selector no encontrado, recargando página...');
@@ -124,9 +124,24 @@ async function scrapeData() {
         if (selectorFound) {
           console.log("Comenzando...");
           if(i==1){
-            let cerraPopUp = await page.$('#notificacion-btn-cerrar');
-            if(cerraPopUp){
-              await page.click('#notificacion-btn-cerrar'); //CERRA POPUP
+            console.log("entro a  comenzando");
+            let seleccionarCP = await page.$('#nro_codigo_postal');
+            await seleccionarCP.type('9000');
+            await page.evaluate(() => {
+              return new Promise(resolve => {
+                setTimeout(resolve, 10000);
+              });
+            });
+            let seleccionoSucursal =  await page.$('label[for="sucursal_47"]');
+            if(seleccionoSucursal)
+              {
+              await seleccionoSucursal.click();
+              console.log("se seleccionó la sucursal");
+            }
+            let confirmarCp = await page.$('#btn_Confirmar');
+            if(confirmarCp){
+              await confirmarCp.click(); //CERRA POPUP
+              console.log("se cerro popup");
             }
             await selectSucursal(page);
             await page.goto(link);
@@ -427,7 +442,7 @@ async function createExcel(rows) {
   for(let row of rows){
     worksheet.addRow(row);
   }
-  const filePath = 'C:/Users/blass/OneDrive/Desktop/' + fileName; // WINDOWS
+  const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/Excel/LAANONIMA/' + fileName; // WINDOWS
   //const filePath = '/home/blas/Descargas/' + fileName; // LINUX
 
 

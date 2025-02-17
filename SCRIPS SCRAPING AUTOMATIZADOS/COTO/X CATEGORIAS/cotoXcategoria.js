@@ -46,7 +46,7 @@ async function scrapeData() {
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-chocolates/_/N-uiml5b',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-caramelos-y-chupetines/_/N-1xkf1n',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-golosinas-chicles-y-pastillas/_/N-axoedr',
-    'https://www.cotodigital.com.ar/sitios/cdigi/categoria/catalogo-almac%C3%A9n-panaderia-galletitas/_/N-10z239c',
+    //'https://www.cotodigital.com.ar/sitios/cdigi/categoria/catalogo-almac%C3%A9n-panaderia-galletitas/_/N-10z239c',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-panaderia-panificados/_/N-1sv7ob1',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-panaderia-galletas-tostadas-y-grisines/_/N-39hspl',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-snacks/_/N-10kzbyj',
@@ -66,7 +66,7 @@ async function scrapeData() {
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-gaseosas/_/N-n4l4r5',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-aguas-aguas-saborizadas/_/N-rtdaup?Nf=product.startDate%7CLTEQ+1.7037216E12%7C%7Cproduct.endDate%7CGTEQ+1.7037216E12&Nr=AND%28product.sDisp_200%3A1004%2Cproduct.language%3Aespa%C3%B1ol%2COR%28product.siteId%3ACotoDigital%29%29',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-sin-alcohol-jugos-jugos-en-polvo/_/N-xwrj6e?Nf=product.startDate%7CLTEQ+1.7037216E12%7C%7Cproduct.endDate%7CGTEQ+1.7037216E12&Nr=AND%28product.sDisp_200%3A1004%2Cproduct.language%3Aespa%C3%B1ol%2COR%28product.siteId%3ACotoDigital%29%29',
-    // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-aderezos-y-salsas-mayonesas/_/N-r3vqlx',
+     'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-almac%C3%A9n-aderezos-y-salsas-mayonesas/_/N-r3vqlx',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-bebidas-bebidas-con-alcohol-aperitivos-fernet/_/N-1rutp5',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-perfumer%C3%ADa-pa%C3%B1ales-y-productos-para-incontinencia-pa%C3%B1ales-para-beb%C3%A9/_/N-fmf3uu',
     // 'https://www.cotodigital3.com.ar/sitios/cdigi/browse/catalogo-limpieza-limpieza-de-cocina-detergentes/_/N-bn6wsg',
@@ -175,7 +175,7 @@ async function scrapeData() {
           await new Promise(resolve => setTimeout(resolve, waitTime));
           }, 10000);
         await page.waitForSelector('body > app-root > app-main > app-layout-render > dynamic-loader > account-landing-page > section > div > div > dynamic-loader:nth-child(2) > cuantica-account-address > address-main > address-list > main > address-card > div > div:nth-child(1)');
-        const btnSucursalLibertador = await page.$('body > app-root > app-main > app-layout-render > dynamic-loader > account-landing-page > section > div > div > dynamic-loader:nth-child(2) > cuantica-account-address > address-main > address-list > main > address-card > div > div:nth-child(2) > div.card-footer.ng-tns-c65-4 > button');
+        const btnSucursalLibertador = await page.$('body > app-root > app-main > app-layout-render > dynamic-loader > account-landing-page > section > div > div > dynamic-loader:nth-child(2) > cuantica-account-address > address-main > address-list > main > address-card > div > div:nth-child(2) > div.card-footer.ng-tns-c65-4 > button.btn');
         // const btnSucursalTortugas = await page.$('#atg_store_addressBookDefault > form > div.addressBookScrollPanel > table > tbody > tr:nth-child(2) > td.mute_address_td');
         if (btnSucursalLibertador){
           await btnSucursalLibertador.click();
@@ -459,9 +459,9 @@ async function createExcel(rows,page) {
   for(let row of rows){
     worksheet.addRow(row);
   }
-  // const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
+   const filePath = 'C:/Users/Klehr/Desktop/rockstarsolutions/WEB-SCRAPING/ARCHIVOS/COTO/' + fileName; // WINDOWS
 
-  const filePath = 'C:/Users/blass/Desktop/WEB SCRAPING/ARCHIVOS/' + fileName; // WINDOWS
+  //const filePath = 'C:/Users/blass/Desktop/WEB SCRAPING/ARCHIVOS/' + fileName; // WINDOWS
 
 
   try {

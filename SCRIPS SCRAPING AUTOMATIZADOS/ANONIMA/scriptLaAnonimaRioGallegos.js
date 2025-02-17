@@ -125,9 +125,24 @@ async function scrapeData() {
         if (selectorFound) {
           console.log("Comenzando...");
           if(i==1){
-            let cerraPopUp = await page.$('#notificacion-btn-cerrar');
-            if(cerraPopUp){
-              await page.click('#notificacion-btn-cerrar'); //CERRA POPUP
+            console.log("entro a  comenzando");
+            let seleccionarCP = await page.$('#nro_codigo_postal');
+            await seleccionarCP.type('9400');
+            await page.evaluate(() => {
+              return new Promise(resolve => {
+                setTimeout(resolve, 10000);
+              });
+            });
+            let seleccionoSucursal =  await page.$('label[for="sucursal_59"]');
+            if(seleccionoSucursal)
+              {
+              await seleccionoSucursal.click();
+              console.log("se seleccionó la sucursal");
+            }
+            let confirmarCp = await page.$('#btn_Confirmar');
+            if(confirmarCp){
+              await confirmarCp.click(); //CERRA POPUP
+              console.log("se cerro popup");
             }
             await selectSucursal(page);
             await page.goto(link);
